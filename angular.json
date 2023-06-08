@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "basics": {
+    "clips": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/basics",
+            "outputPath": "dist/clips",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,21 +60,18 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "basics:build:production"
+              "browserTarget": "clips:build:production"
             },
             "development": {
-              "browserTarget": "basics:build:development"
+              "browserTarget": "clips:build:development"
             }
-          },
-          "options": {
-            "port": 3200
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "basics:build"
+            "browserTarget": "clips:build"
           }
         },
         "test": {
