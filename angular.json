@@ -22,7 +22,12 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "input": "node_modules/@ffmpeg/core/dist/umd/",
+                "output": "node_modules/@ffmpeg/core/dist/umd/",
+                "glob": "*"
+              }
             ],
             "styles": [
               "src/styles.css"
@@ -65,7 +70,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "port": 3200
+            "port": 3200,
+            "headers": {
+              "Cross-Origin-Opener-Policy": "same-origin",
+              "Cross-Origin-Embedder-Policy": "require-corp"
+            }
         },
           "configurations": {
             "production": {

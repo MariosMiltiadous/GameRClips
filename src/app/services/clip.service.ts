@@ -44,7 +44,7 @@ export class ClipService {
         const querry = this.clipsCollection.ref.where(
           'uid', '==', user.uid
         ).orderBy(
-          'timeStamp', 
+          'timeStamp',
           sort === '1' ? "desc" : "asc"
         )
 
@@ -62,6 +62,11 @@ export class ClipService {
 
   async deleteClip(clip: IClip) {
     const clipRef = this.storage.ref(`clips/${clip.fileName}`)
+    const screenshotRef = this.storage.ref(
+      `screenshots/${clip.screenshotFileName}`
+    )
+    
+    await screenshotRef.delete()
     await clipRef.delete()
 
     await this.clipsCollection.doc(clip.docID).delete()
