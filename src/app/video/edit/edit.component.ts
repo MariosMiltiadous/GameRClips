@@ -2,7 +2,7 @@ import {
   Component, Input, OnDestroy, OnInit, OnChanges, Output, EventEmitter
 } from '@angular/core';
 import { ModalService } from 'src/app/services/modal.service';
-import { IClip } from 'src/app/models/clip.model';
+import IClip from 'src/app/models/clip.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ClipService } from 'src/app/services/clip.service';
 
