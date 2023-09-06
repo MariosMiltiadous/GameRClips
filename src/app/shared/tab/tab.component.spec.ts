@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TabComponent } from './tab.component';
+import { By } from '@angular/platform-browser';
 
 describe('TabComponent', () => {
   let component: TabComponent;
@@ -8,9 +9,9 @@ describe('TabComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TabComponent ]
+      declarations: [TabComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(TabComponent);
     component = fixture.componentInstance;
@@ -20,4 +21,19 @@ describe('TabComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have .hidden class', () => {
+    const element = fixture.debugElement.query(By.css('.hidden'));
+
+    expect(element).toBeTruthy();
+  })
+
+  it('should not have .hidden class', () => {
+    component.active = true;
+    fixture.detectChanges();// must run in order to update the component
+
+    const element = fixture.debugElement.query(By.css('.hidden'));
+
+    expect(element).not.toBeTruthy(); // not checks for !toBeTruthy
+  })
 });
